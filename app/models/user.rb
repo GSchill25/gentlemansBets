@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 	  validates_presence_of :password, on: :create 
 	  validates_presence_of :password_confirmation, on: :create 
 	  validates_confirmation_of :password, message: "does not match"
-	  validates_length_of :password, minimum: 4, message: "must be at least 4 characters long", allow_blank: true
+	  validates_length_of :password, minimum: 2, message: "must be at least 4 characters long", allow_blank: true
 
 	  # for use in authorizing with CanCan
 	  ROLES = [['Administrator', :admin], ['Member', :member]]

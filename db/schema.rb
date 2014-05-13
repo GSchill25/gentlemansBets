@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140513025731) do
     t.string   "description"
     t.string   "winner"
     t.integer  "member_id"
-    t.integer  "memeber_one_confidence"
+    t.integer  "member_one_confidence"
     t.integer  "member_two_confidence"
     t.string   "challengee"
     t.integer  "challengee_id"
