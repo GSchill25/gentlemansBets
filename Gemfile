@@ -6,6 +6,7 @@ gem 'rails', '4.0.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -21,8 +22,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# Turbolinks isn't playing nicely with foundation so for now remove it from standard rails
+# gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -32,14 +33,59 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# Use a gem for handling pagination
+gem 'will_paginate'
+
+# Use a gem for handling date validation
+gem 'validates_timeliness'
+
+# Use simple_form to clean up form views
+gem 'simple_form'
+
+# Use foundation for base CSS
+gem 'foundation-rails'
+
+# Use geocoder to get latitude and longitude data
+gem 'geocoder'
+
+# Use carrierwave to upload instructor photos
+gem 'carrierwave'
+
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '3.1.5'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+#authorization
+gem 'cancancan', '1.7.0'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'jquery-ui-rails', '4.1.1'
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+gem "nested_form"
+
+gem 'chronic', '0.10.2'
+
+# Additional gems that are very useful in Rails development
+group :development do
+  gem 'quiet_assets'
+  gem 'thin'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'wirble'
+  gem 'hirb'
+  gem 'faker'
+end
+
+# Gems used only in testing
+group :test do
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'mocha', require: false
+  gem 'simplecov'
+  gem 'turn'
+  gem 'single_test'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'capybara'
+end
