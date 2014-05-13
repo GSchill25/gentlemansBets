@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  winner: MyString
+  member_id: 1
+  memeber_one_confidence: 1
+  member_two_confidence: 1
+  challengee: MyString
+  challengee_id: 1
+  accepted: false
+  video_id: 1
+  active: false
+
+two:
+  name: MyString
+  description: MyString
+  winner: MyString
+  member_id: 1
+  memeber_one_confidence: 1
+  member_two_confidence: 1
+  challengee: MyString
+  challengee_id: 1
+  accepted: false
+  video_id: 1
+  active: false
