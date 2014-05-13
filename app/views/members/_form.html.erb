@@ -1,0 +1,20 @@
+<%= simple_nested_form_for(@member, html: { class: 'form-horizontal' }) do |ins_form| %>
+   
+   <h3><%= controller.action_name.capitalize %> Instructor</h3>
+    
+    <%= ins_form.input :first_name %>
+    <%= ins_form.input :last_name %>
+    <%= ins_form.input :date_of_birth, label: "Start Date", as: :string, :input_html => {:class => "avg datepicker"} %> 
+      </br></br><legend>User login</legend></br></br>
+        <div id="user_fields">
+          <%= ins_form.simple_fields_for :user do |user_form| %>
+            <%= render :partial => "user_fields", :locals => { :f => user_form } %>
+          <% end %> 
+        </div> 
+
+    <div class="form-actions">
+      <%= ins_form.submit nil, class: 'button radius' %>
+      <%= link_to 'Back to list of members', members_path, :class => 'button secondary radius' %>
+    </div>
+
+<% end %>

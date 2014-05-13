@@ -16,17 +16,17 @@ namespace :db do
       member.first_name = Faker::Name.first_name
       member.last_name = Faker::Name.last_name
       member.date_of_birth = (12..100).to_a.sample.years.ago.to_date
-      member.number_of_bets = 0..5
+      member.number_of_bets = 0..10
       member.bets_won = 0
       member.active = true
-      #User.populate 1 do |user|
-        #user.member_id = member.id
-        #user.username = Populator.words(1)
+      User.populate 1 do |user|
+        user.member_id = member.id
+        user.username = Populator.words(1)
         #user.password = "secret"
         #user.password_confirmation = "secret"
-        #user.role = ['admin', 'member']
-        #user.active = true
-      #end
+        user.role = ['admin', 'member']
+        user.active = true
+      end
       Bet.populate member.number_of_bets do |bet|
         bet.member_id = member.id
         bet.name = Populator.sentences(1)

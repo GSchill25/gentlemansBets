@@ -1,0 +1,27 @@
+<h3>All Active Members</h3>
+
+<table class="table">
+  <tr>
+    <th width="200">Name</th>
+    <th width="100">Age</th>
+    <th width="100">Bets Placed</th>
+    <th width="100">Bets Won</th>
+
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @members.each do |member| %>
+  <tr>
+    <td><%= link_to member.proper_name, member_path(member) %></td>
+    <td align="center"><%= member.age %></td>
+    <td align="center"><%= member.number_of_bets %></td>
+    <td align="center"><%= member.bets_won %></td>
+    <td><%= link_to 'View Profile', member_path(member), class: "button tiny radius" %></td>
+  </tr>
+<% end %>
+</table>
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @bets, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>

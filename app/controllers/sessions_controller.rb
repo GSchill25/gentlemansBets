@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
       if user && User.authenticate(params[:username], params[:password])
         session[:user_id] = user.id
         if user.role? :admin
-          redirect_to home_path, notice: "You are logged into Gentleman's Bets"
+          redirect_to bets_path, notice: "You are logged into Gentleman's Bets"
         else
-          redirect_to home_path, notice: "You are logged into Gentleman's Bets"
+          redirect_to bets_path, notice: "You are logged into Gentleman's Bets"
         end
       else
         flash.now.alert = "Username or password is invalid"

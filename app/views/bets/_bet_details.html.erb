@@ -1,0 +1,22 @@
+<h3>Bet Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @bet.name %><br /><br />
+
+<strong>Description:&nbsp;&nbsp;</strong><br /> 
+  <%= @bet.description %><br /><br />
+
+<strong>Winner: &nbsp;&nbsp;</strong> 
+  <%= @bet.winner.nil? ? "Undecided" : @bet.winner %><br /><br />
+
+<strong><%= "#{@bet.member.proper_name} Confindence:" %>&nbsp;&nbsp;</strong>
+  <%= @bet.member_one_confidence %><br /><br />
+
+<strong><%= "#{Member.find(@bet.challengee_id).proper_name} Confindence:" %>&nbsp;&nbsp;</strong>
+  <%= @bet.member_two_confidence %><br /><br />
+
+<strong>Accepted?: &nbsp;&nbsp;</strong>
+  <%= @bet.accepted ? "Yes" : "No" %><br /><br />
+
+
+
+<%= link_to "Edit this bet", edit_bet_path(@bet), class: "button tiny radius" %>&nbsp;&nbsp;

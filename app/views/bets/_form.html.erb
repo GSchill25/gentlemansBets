@@ -1,0 +1,15 @@
+<%= simple_form_for(@bet, html: { class: 'form-horizontal' }) do |f| %>
+   
+   <h3><%= controller.action_name.capitalize %> Bet</h3>
+    
+    <%= f.input :name %>
+    <%= f.input :description, input_html: { rows: 8 } %>
+    <%= f.input :member_one_confidence %>
+    <%= f.input :challengee_id, collection: Member.all, prompt: "Select who to challenge..." %>
+
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button radius' %>
+      <%= link_to 'Back to list of bets', bets_path, :class => 'button secondary radius' %>
+    </div>
+
+<% end %>

@@ -1,6 +1,7 @@
 GentlemansBets::Application.routes.draw do
   resources :bets
   resources :members
+  resources :sessions
 
   get 'user/edit' => 'users#edit', :as => :edit_current_user
   get 'signup' => 'users#new', :as => :signup

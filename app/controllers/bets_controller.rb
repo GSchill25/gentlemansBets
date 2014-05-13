@@ -17,6 +17,7 @@ class BetsController < ApplicationController
 
   def create
     @bet = Bet.new(bet_params)
+    @bet.member = current_user.member
     if @bet.save
       redirect_to @bet, notice: "#{@bet.name} Bet was sent"
     else
@@ -25,6 +26,7 @@ class BetsController < ApplicationController
   end
 
   def update
+    @bet.member = current_user.member
     if @bet.update(bet_params)
       redirect_to @bet, notice: "#{@bet.name} was revised"
     else

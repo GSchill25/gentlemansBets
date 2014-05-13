@@ -2,6 +2,9 @@ class Member < ActiveRecord::Base
 	has_one :user
 	has_many :bets
 
+	#nested form
+  	accepts_nested_attributes_for :user, reject_if: lambda {|user| user[:username].blank? or user[:password].blank?}
+
 	validates_presence_of :first_name, :last_name, :date_of_birth
 
 	# instance methods

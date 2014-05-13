@@ -9,10 +9,14 @@ class MembersController < ApplicationController
   end
 
   def edit
+    if @member.user.nil?
+        @member.build_user
+    end
   end
 
   def new
     @member = Member.new
+    @member.build_user
   end
 
   def create
@@ -43,6 +47,6 @@ class MembersController < ApplicationController
     end
 
     def member_params
-      params.require(:member).permit(:first_name, :last_name, :date_of_birth, :number_of_bets, :bets_won, :active)
+      params.require(:member).permit(:first_name, :last_name, :date_of_birth, :number_of_bets, :bets_won, :active, user_attributes: [:id, :username, :password, :password_confirmation, :role])
     end
 end

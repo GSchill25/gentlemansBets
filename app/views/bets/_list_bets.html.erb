@@ -1,0 +1,27 @@
+<h3>All Bets Placed</h3>
+
+<table class="table">
+  <tr>
+    <th width="200">Name</th>
+    <th width="400">Description</th>
+    <th width="100">Challenger</th>
+    <th width="100">Acceptor</th>
+
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bets.each do |bet| %>
+  <tr>
+    <td><%= link_to bet.name, bet_path(bet) %></td>
+    <td align="center"><%= bet.description %></td>
+    <td align="center"><%= "name" %></td>
+    <td align="center"><%= "name" %></td>
+    <td><%= link_to 'View', bet_path(bet), class: "button tiny radius" %></td>
+  </tr>
+<% end %>
+</table>
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @bets, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>

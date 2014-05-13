@@ -1,0 +1,16 @@
+<h3>Member Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @member.proper_name %><br /><br />
+
+<strong>Age:&nbsp;&nbsp;</strong> 
+  <%= @member.age %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @member.active ? "Yes" : "No" %><br /><br />
+
+<% if not @member.user.nil? %>
+    <%= render :partial =>"user_details" %>
+<% end %>
+
+
+<%= link_to "Edit Info", edit_member_path(@member), class: "button tiny radius" %>&nbsp;&nbsp;
