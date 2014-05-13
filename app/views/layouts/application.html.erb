@@ -1,14 +1,40 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>GentlemansBets</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "Gentlemans Bet" %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%# javascript_include_tag "application" %> 
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+  <body>
+    <div>
+      <%= render :partial => "partials/nav" %>
+    </div>
+    
+    <div class="row">
+      <div class="small-12 columns" id="main_content">
+        <%= render :partial => "partials/flash" %>
+        <%= yield %>
+      </div>
+    </div>
+    </br></br>
+
+    <footer>
+      <div class="row">
+        <%#= render partial: 'partials/bottom_images' if not current_page?(:controller => 'home', :action => 'index') %>
+      </div>
+      </br></br>
+      <div class="row">
+        <div class="small-6 large-centered columns">
+          <%#= render partial: 'partials/footer' %>
+        </div>
+      </div> 
+    </footer>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

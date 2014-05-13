@@ -1,0 +1,45 @@
+  <div class="contain-to-grid">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <%#= link_to image_tag('amcc_logo.png'), home_path %>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="left">
+          <!-- options for curriculums -->
+          <li class="has-dropdown">
+            <% if can? :read, Bet %>
+              <%= link_to "Bets", bets_path %>
+            <% end %>
+            <ul class="dropdown">
+              <li><%= link_to "List Bets", bets_path %></li>
+              <li><%= link_to "Make a Bet", new_bet_path %></li>
+            </ul>
+          </li>
+
+          <!-- options for camps -->
+          <li class="has-dropdown">
+            <% if can? :read, Member %>
+              <%= link_to "Members", members_path %>
+            <% end %>
+            <ul class="dropdown">
+              <li><%= link_to "List Members", members_path %></li>
+              <% if can? :create, Member %>
+                <li><%= link_to "Add a Member", new_member_path %></li>
+              <% end %>
+            </ul>
+          </li>
+
+
+        <ul class="right">
+          <% if logged_in? %>
+            <%= link_to 'Logout', logout_path %>
+            <br>[<%= current_user.username %>]
+          <% else %>
+            <%= link_to 'Login', login_path %>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
+  </div>
