@@ -7,6 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Gentlemans Bet" %></title>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <script src="Chart.js"></script>
     <%# javascript_include_tag "application" %> 
     <%= csrf_meta_tags %>
   </head>
