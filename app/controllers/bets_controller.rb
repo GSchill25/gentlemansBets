@@ -6,6 +6,10 @@ class BetsController < ApplicationController
   end
 
   def show
+    @involved_members = []
+    @involved_members << [@bet.member.proper_name, @bet.member.number_of_bets]
+    @challenger = Member.find(@bet.challengee_id)
+    @involved_members << [@challenger.proper_name, @challenger.number_of_bets]
   end
 
   def edit

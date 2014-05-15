@@ -29,7 +29,7 @@ namespace :db do
       end
       Bet.populate member.number_of_bets do |bet|
         bet.member_id = member.id
-        bet.name = Populator.sentences(1)
+        bet.name = Populator.words(3..5)
         bet.description = Populator.paragraphs(1)
         bet.winner = ""
         bet.member_one_confidence = 1..10

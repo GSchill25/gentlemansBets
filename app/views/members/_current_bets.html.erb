@@ -1,0 +1,17 @@
+<% unless @bets.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Current Bets:</h5>
+    <ul class="side-nav">
+      <% @bets.each do |bet| %>
+        <li><%= link_to bet.name, bet_path(bet) %></li>
+        <li><%= "Against: #{bet.challengee}" %></li></br>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>Curriculum has not been used</h5>
+  </div>
+<% end %>

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'chartkick'
+
 gem 'populator'
 
 gem 'chart-js-rails'

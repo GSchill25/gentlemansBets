@@ -6,6 +6,7 @@ class MembersController < ApplicationController
   end
 
   def show
+    @bets = Bet.accepted.for_member(@member)
   end
 
   def edit

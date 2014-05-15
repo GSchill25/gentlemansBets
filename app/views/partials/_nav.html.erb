@@ -25,9 +25,7 @@
             <% end %>
             <ul class="dropdown">
               <li><%= link_to "List Members", members_path %></li>
-              <% if can? :create, Member %>
-                <li><%= link_to "Add a Member", new_member_path %></li>
-              <% end %>
+              <li><%= link_to "Add a Member", new_member_path %></li>
             </ul>
           </li>
 
