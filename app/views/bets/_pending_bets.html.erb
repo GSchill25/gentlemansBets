@@ -1,0 +1,17 @@
+<% unless @pending_bets.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Pending Bets:</h5>
+    <ul class="side-nav">
+      <% @pending_bets.each do |bet| %>
+        <li><%= link_to bet.name, bet_path(bet) %></li>
+        <li><%= "#{Member.find(bet.challengee_id).proper_name} has not yet accepted! " %></li></br>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>All your bets have been accepted.<h5>
+  </div>
+<% end %>

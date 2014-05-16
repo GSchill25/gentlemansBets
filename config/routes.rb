@@ -8,6 +8,9 @@ GentlemansBets::Application.routes.draw do
   get 'login' => 'sessions#new', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
 
+  get 'pending' => 'bets#pending', :as => :pending
+  post 'accept' => 'bets#accept', :as => :accept
+
   # set the root url
   root to: 'bets#index'
 end

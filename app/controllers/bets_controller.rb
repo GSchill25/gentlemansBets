@@ -1,5 +1,5 @@
 class BetsController < ApplicationController
-  before_action :set_bet, only: [:show, :edit, :update, :destroy]
+  before_action :set_bet, only: [:show, :edit, :update, :destroy, :accept]
 
   def index
     @bets = Bet.paginate(:page => params[:page]).per_page(10)
@@ -7,9 +7,9 @@ class BetsController < ApplicationController
 
   def show
     @involved_members = []
-    @involved_members << [@bet.member.proper_name, @bet.member.number_of_bets]
+    @involved_members << [@bet.member.proper_name, @bet.member.bets_won]
     @challenger = Member.find(@bet.challengee_id)
-    @involved_members << [@challenger.proper_name, @challenger.number_of_bets]
+    @involved_members << [@challenger.proper_name, @challenger.bets_won]
   end
 
   def edit
@@ -19,10 +19,21 @@ class BetsController < ApplicationController
     @bet = Bet.new
   end
 
+  def pending
+    @bets_to_accept = Bet.to_accept(current_user.member_id)
+    @pending_bets = Bet.pending(current_user.member_id)
+  end
+  
+  def accept
+    @bet.update_accept
+    redirect_to bet_path(@bet)
+  end
+
   def create
     @bet = Bet.new(bet_params)
     @bet.member = current_user.member
     if @bet.save
+      @bet.member.number_of_bets = @bet.member.number_of_bets+1
       redirect_to @bet, notice: "#{@bet.name} Bet was sent"
     else
       render action: 'new'
@@ -32,6 +43,8 @@ class BetsController < ApplicationController
   def update
     @bet.member = current_user.member
     if @bet.update(bet_params)
+      @bet.member.count_wins
+      Member.find(@bet.challengee_id).count_wins
       redirect_to @bet, notice: "#{@bet.name} was revised"
     else
       render action: 'edit'

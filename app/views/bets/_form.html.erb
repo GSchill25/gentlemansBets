@@ -6,6 +6,7 @@
     <%= f.input :description, input_html: { rows: 8 } %>
     <%= f.input :member_one_confidence %>
     <%= f.input :challengee_id, collection: Member.all, prompt: "Select who to challenge..." %>
+    <%= f.input :accepted %>
 
     <div class="form-actions">
       <%= f.submit nil, class: 'button radius' %>

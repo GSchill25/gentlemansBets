@@ -20,4 +20,16 @@ class Member < ActiveRecord::Base
 	    return nil if date_of_birth.blank?
 	    (Time.now.to_s(:number).to_i - date_of_birth.to_time.to_s(:number).to_i)/10e9.to_i
 	end
+
+	def count_wins
+		all_bets = Bet.all.map{|b| b.winner}
+		wins = 0
+		all_bets.each do |b|
+			if b == self.proper_name
+				wins = wins +1
+			end
+		end
+		self.bets_won = wins
+		self.save
+	end
 end

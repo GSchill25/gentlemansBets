@@ -1,0 +1,19 @@
+<% unless @bets_to_accept.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>You've been challenged:</h5>
+    <ul class="side-nav">
+      <% @bets_to_accept.each do |bet| %>
+        <li><%= link_to bet.name, bet_path(bet) %></li>
+        <li><%= bet.description %></li>
+        <li><%= "Challenge by: #{bet.member.proper_name}" %></li>
+        <li><%= button_to("Accept", {action: "accept", id: bet.id}) %></li></br>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>You've accepted all proposed bets.<h5>
+  </div>
+<% end %>
