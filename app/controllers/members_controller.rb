@@ -7,6 +7,9 @@ class MembersController < ApplicationController
 
   def show
     @bets = Bet.accepted.for_member(@member)
+    @data = []
+    @data << ["Losses", @member.number_of_bets-@member.bets_won]
+    @data << ["Wins", @member.bets_won]
   end
 
   def edit

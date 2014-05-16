@@ -5,6 +5,12 @@
 <strong>Age:&nbsp;&nbsp;</strong> 
   <%= @member.age %><br /><br />
 
+ <strong>Number of bets:&nbsp;&nbsp;</strong> 
+  <%= @member.number_of_bets %><br /><br />
+
+<strong>Bets Won:&nbsp;&nbsp;</strong> 
+  <%= @member.bets_won %><br /><br />
+
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @member.active ? "Yes" : "No" %><br /><br />
 
@@ -12,5 +18,6 @@
     <%= render :partial =>"user_details" %>
 <% end %>
 
-
-<%= link_to "Edit Info", edit_member_path(@member), class: "button tiny radius" %>&nbsp;&nbsp;
+<% if current_user.member_id == @member.id %>
+	<%= link_to "Edit Info", edit_member_path(@member), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>

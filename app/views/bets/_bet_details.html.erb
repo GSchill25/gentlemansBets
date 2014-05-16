@@ -18,5 +18,6 @@
   <%= @bet.accepted ? "Yes" : "No" %><br /><br />
 
 
-
-<%= link_to "Edit this bet", edit_bet_path(@bet), class: "button tiny radius" %>&nbsp;&nbsp;
+<% if current_user.role == 'admin' or (@bet.member.user == current_user and @bet.accepted == false) %>
+	<%= link_to "Edit this bet", edit_bet_path(@bet), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>
