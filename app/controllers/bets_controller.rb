@@ -34,7 +34,7 @@ class BetsController < ApplicationController
     @bet.member = current_user.member
     if @bet.save
       @bet.member.number_of_bets = @bet.member.number_of_bets+1
-      redirect_to @bet, notice: "#{@bet.name} Bet was sent"
+      redirect_to bets_url, notice: "#{@bet.name} Bet was sent"
     else
       render action: 'new'
     end
@@ -62,7 +62,7 @@ class BetsController < ApplicationController
     end
 
     def bet_params
-      params.require(:bet).permit(:name, :description, :winner, :member_id, :memeber_one_confidence, :memeber_two_confidence, :challengee, :challengee_id, :accepted, :active)
+      params.require(:bet).permit(:name, :description, :winner, :member_id, :member_one_confidence, :member_two_confidence, :challengee, :challengee_id, :accepted, :active)
     end
 
 end

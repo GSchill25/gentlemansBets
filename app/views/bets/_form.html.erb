@@ -7,6 +7,7 @@
     <%= f.input :member_one_confidence %>
     <%= f.input :challengee_id, collection: Member.all, prompt: "Select who to challenge..." %>
     <%= f.input :accepted %>
+    <%= f.input :winner, collection: Member.all.map{|m| m.proper_name}, prompt: "Choose winner..." %>
 
     <div class="form-actions">
       <%= f.submit nil, class: 'button radius' %>
