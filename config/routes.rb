@@ -11,6 +11,10 @@ GentlemansBets::Application.routes.draw do
   get 'pending' => 'bets#pending', :as => :pending
   post 'accept' => 'bets#accept', :as => :accept
 
+  get '/auth/:provider/callback' => 'sessions#create'
+  get '/signout' => 'sessions#destroy', :as => :signout
+
+
   # set the root url
   root to: 'bets#index'
 end

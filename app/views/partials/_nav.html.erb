@@ -32,12 +32,18 @@
 
 
         <ul class="right">
-          <% if logged_in? %>
-            <%= link_to 'Logout', logout_path %>
-            <br>[<%= current_user.username %>]
+          <% if current_user %>
+            Welcome <%= current_user.username %>!
+            <%= link_to "Sign Out", signout_path %>
           <% else %>
-            <%= link_to 'Login', login_path %>
+            <%= link_to "Sign in with Twitter", "/auth/twitter" %>
           <% end %>
+          <%# if logged_in? %>
+            <%#= link_to 'Logout', logout_path %>
+            <%#= current_user.username %>
+          <%# else %>
+            <%#= link_to 'Login', login_path %>
+          <%# end %>
         </ul>
       </section>
     </nav>
