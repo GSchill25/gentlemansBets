@@ -1,4 +1,12 @@
 <h3>Member Details</h3><br />
+
+<% if @member.user.picture != nil %>
+	<% image_tag user.picture %>
+<% else %>
+	<% image_tag "blank-profile.jpg", height: '64', width: '64' %>
+<% end %>
+
+</br></br>
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @member.proper_name %><br /><br />
 

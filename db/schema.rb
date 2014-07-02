@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701134849) do
+ActiveRecord::Schema.define(version: 20140702203514) do
 
   create_table "bets", force: true do |t|
     t.string   "name"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140701134849) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.string   "picture"
   end
 
 end
