@@ -14,7 +14,7 @@ GentlemansBets::Application.routes.draw do
   get '/auth/twitter/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', :as => :signout
 
-  get '/auth/facebook' => 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#create'
 
 
   # set the root url

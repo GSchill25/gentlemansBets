@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       info = auth["info"]
       user.picture = info["image"]
+      user.save
       redirect_to members_path, :notice => "Signed in!"
     end
 
