@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'omniauth-twitter'
 
+gem 'omniauth-facebook'
+
 gem 'chartkick'
 
 gem 'populator'

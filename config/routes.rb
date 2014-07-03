@@ -11,8 +11,10 @@ GentlemansBets::Application.routes.draw do
   get 'pending' => 'bets#pending', :as => :pending
   post 'accept' => 'bets#accept', :as => :accept
 
-  get '/auth/:provider/callback' => 'sessions#create'
+  get '/auth/twitter/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', :as => :signout
+
+  get '/auth/facebook' => 'sessions#create'
 
 
   # set the root url

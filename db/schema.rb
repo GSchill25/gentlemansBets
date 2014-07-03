@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20140701134849) do
 
+  create_table "badges", force: true do |t|
+    t.string   "name"
+    t.integer  "kind_id"
+    t.integer  "points"
+    t.boolean  "default"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "bets", force: true do |t|
     t.string   "name"
     t.string   "description"
@@ -29,6 +38,19 @@ ActiveRecord::Schema.define(version: 20140701134849) do
     t.datetime "updated_at"
   end
 
+  create_table "kinds", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "levels", force: true do |t|
+    t.integer  "badge_id"
+    t.integer  "member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "members", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -36,6 +58,14 @@ ActiveRecord::Schema.define(version: 20140701134849) do
     t.integer  "number_of_bets"
     t.integer  "bets_won"
     t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "points", force: true do |t|
+    t.integer  "member_id"
+    t.integer  "kind_id"
+    t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
