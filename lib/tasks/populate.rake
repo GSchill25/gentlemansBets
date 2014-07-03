@@ -23,8 +23,8 @@ namespace :db do
     graham_user = User.new
     graham_user.username = "graham"
     graham_user.member_id = graham.id
-    graham_user.password = "password"
-    graham_user.password_confirmation = "password"
+    #graham_user.password = "password"
+    #graham_user.password_confirmation = "password"
     graham_user.role = "admin"
     graham_user.save!
 
@@ -39,8 +39,8 @@ namespace :db do
     mike_user = User.new
     mike_user.username = "mike"
     mike_user.member_id = mike.id
-    mike_user.password = "password"
-    mike_user.password_confirmation = "password"
+    #mike_user.password = "password"
+    #mike_user.password_confirmation = "password"
     mike_user.role = "member"
     mike_user.save!
 
@@ -55,8 +55,8 @@ namespace :db do
     juli_user = User.new
     juli_user.username = "juli"
     juli_user.member_id = juli.id
-    juli_user.password = "password"
-    juli_user.password_confirmation = "password"
+    #juli_user.password = "password"
+    #juli_user.password_confirmation = "password"
     juli_user.role = "member"
     juli_user.save!
 
@@ -71,8 +71,8 @@ namespace :db do
     hope_user = User.new
     hope_user.username = "hope"
     hope_user.member_id = hope.id
-    hope_user.password = "password"
-    hope_user.password_confirmation = "password"
+    #hope_user.password = "password"
+    #hope_user.password_confirmation = "password"
     hope_user.role = "member"
     hope_user.save!
 
@@ -87,8 +87,8 @@ namespace :db do
     dennis_user = User.new
     dennis_user.username = "dennis"
     dennis_user.member_id = dennis.id
-    dennis_user.password = "password"
-    dennis_user.password_confirmation = "password"
+    #dennis_user.password = "password"
+    #dennis_user.password_confirmation = "password"
     dennis_user.role = "member"
     dennis_user.save!
 
