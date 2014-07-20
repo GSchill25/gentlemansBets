@@ -26,6 +26,6 @@
     <%= render :partial =>"user_details" %>
 <% end %>
 
-<% if current_user.member_id == @member.id %>
+<%# if current_user.member_id == @member.id %>
 	<%= link_to "Edit Info", edit_member_path(@member), class: "button tiny radius" %>&nbsp;&nbsp;
-<% end %>
+<%# end %>

@@ -4,7 +4,23 @@ class SessionsController < ApplicationController
 
     def create
       auth = request.env["omniauth.auth"]
-      user =  User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+      user =  User.find_by_provider_and_uid(auth["provider"], auth["uid"])
+      if user == nil 
+        user = User.create_with_omniauth(auth)
+        session[:user_id] = user.id
+        info = auth["info"]
+        user.picture = info["image"]
+        user.save
+        member = Member.new
+        user.member = member
+        user.member.first_name = info["name"]
+        user.member.last_name = info["name"]
+        user.member.date_of_birth = " "
+        user.member.number_of_bets = 0
+        user.member.bets_won = 0
+        user.member.active = true
+        user.save
+      end 
       session[:user_id] = user.id
       info = auth["info"]
       user.picture = info["image"]

@@ -5,7 +5,7 @@ class Member < ActiveRecord::Base
 	#nested form
   	accepts_nested_attributes_for :user, reject_if: lambda {|user| user[:username].blank? or user[:password].blank?}
 
-	validates_presence_of :first_name, :last_name, :date_of_birth
+	#validates_presence_of :last_name
 
 	# instance methods
 	def name
