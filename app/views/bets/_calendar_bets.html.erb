@@ -1,0 +1,17 @@
+<div id="bets">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @bets_by_date[date] %>
+      <ul>
+        <% @bets_by_date[date].each do |bet| %>
+          <li><%= link_to bet.name, bet %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

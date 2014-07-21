@@ -5,7 +5,9 @@
     <th width="200">Name</th>
     <th width="350">Description</th>
     <th width="100">Challenger</th>
+    <th width="100"></th>
     <th width="100">Challengee</th>
+    <th width="100"></th> 
     <th width="100">Accepted?</th>
 
     <th></th>
@@ -17,7 +19,17 @@
     <td><%= link_to bet.name, bet_path(bet) %></td>
     <td align="center"><%= bet.description %></td>
     <td align="center"><%= bet.member.proper_name %></td>
+    <% if bet.member.user.picture != nil %>
+      <td align="center"><%= image_tag(bet.member.user.picture, height: '64', width: '64') %></td>
+    <% else %>
+      <td align="center"><%= image_tag("blank-profile.jpg", height: '64', width: '64') %></td>
+    <% end %>
     <td align="center"><%= Member.find(bet.challengee_id).proper_name %></td>
+    <% if Member.find(bet.challengee_id).user.picture != nil %>
+      <td align="center"><%= image_tag(Member.find(bet.challengee_id).user.picture, height: '64', width: '64') %></td>
+    <% else %>
+      <td align="center"><%= image_tag("blank-profile.jpg", height: '64', width: '64') %></td>
+    <% end %>
     <td align="center"><%= bet.accepted ? "Yes" : "No" %></td>
     <td><%= link_to 'View', bet_path(bet), class: "button tiny radius" %></td>
   </tr>

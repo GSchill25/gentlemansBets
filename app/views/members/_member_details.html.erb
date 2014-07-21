@@ -1,7 +1,7 @@
 <h3>Member Details</h3><br />
 
 <% if @member.user.picture != nil %>
-	<%=image_tag(@member.user.picture) %>
+	<%=image_tag(@member.user.picture, height: '64', width: '64') %>
 <% else %>
 	<%= image_tag("blank-profile.jpg", height: '64', width: '64') %>
 <% end %>

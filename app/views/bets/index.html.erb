@@ -1,15 +1,16 @@
 <div class="row">
-  <div class="small-1columns">
-
-  </div>
-
-  <div class="small-10 columns">
+  <div class="small-12 columns">
   	<%= render :partial => "list_bets" %>
     <br />
     <%= link_to "Make a new bet", new_bet_path, class: "button tiny radius" %>
     &nbsp;
   </div>
+</div>
 
-  <div class="small-1 columns">
+<div class="row">
+  <div class="small-12 columns">
+  	<br /><br />
+  	<%= render :partial => "calendar_bets" %>
+    
   </div>
 </div>

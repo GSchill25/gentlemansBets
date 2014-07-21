@@ -13,8 +13,9 @@ class SessionsController < ApplicationController
         user.save
         member = Member.new
         user.member = member
-        user.member.first_name = info["name"]
-        user.member.last_name = info["name"]
+        fullName = info["name"].split
+        user.member.first_name = fullName[0]
+        user.member.last_name = fullName[1]
         user.member.date_of_birth = " "
         user.member.number_of_bets = 0
         user.member.bets_won = 0

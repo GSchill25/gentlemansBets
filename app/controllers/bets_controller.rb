@@ -3,6 +3,9 @@ class BetsController < ApplicationController
 
   def index
     @bets = Bet.paginate(:page => params[:page]).per_page(10)
+    @calendar_bets = Bet.all
+    @bets_by_date = @calendar_bets.group_by { |b| b.created_at.to_date }
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def show
