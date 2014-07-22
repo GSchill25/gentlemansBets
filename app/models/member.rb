@@ -7,6 +7,15 @@ class Member < ActiveRecord::Base
 
 	#validates_presence_of :last_name
 
+
+	after_initialize :default_values
+
+	def default_values
+		self.number_of_bets ||= 0
+		self.bets_won ||= 0
+		return true
+	end
+
 	# instance methods
 	def name
 	  last_name + ", " + first_name

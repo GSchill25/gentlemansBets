@@ -6,13 +6,8 @@
   <%= @bet.description %><br /><br />
 
 <strong>Winner: &nbsp;&nbsp;</strong> 
-  <%= @bet.winner.nil? ? "Undecided" : @bet.winner %><br /><br />
+  <%= @bet.winner_id.nil? ? "Undecided" : @bet.winner_id %><br /><br />
 
-<strong><%= "#{@bet.member.proper_name} Confindence:" %>&nbsp;&nbsp;</strong>
-  <%= @bet.member_one_confidence %><br /><br />
-
-<strong><%= "#{Member.find(@bet.challengee_id).proper_name} Confindence:" %>&nbsp;&nbsp;</strong>
-  <%= @bet.member_two_confidence %><br /><br />
 
 <strong>Accepted?: &nbsp;&nbsp;</strong>
   <%= @bet.accepted ? "Yes" : "No" %><br /><br />

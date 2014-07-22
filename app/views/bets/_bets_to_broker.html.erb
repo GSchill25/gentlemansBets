@@ -1,0 +1,30 @@
+<% unless @bets_to_broker.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Bets to Broker:</h5>
+    <ul class="side-nav">
+      <% @bets_to_broker.each do |bet| %>
+        <li><%= link_to bet.name, bet_path(bet) %></li>
+        <li><%= bet.description %></li>
+        <li><%= "Challenge by: #{bet.member.proper_name}" %></li>
+        <% if bet.accepted %>
+          <li><%= simple_form_for(bet, html: { class: 'form-horizontal' }) do |f| %>          
+                  <%= f.input :winner_id, collection: Member.all, prompt: "Choose the winner..." %>
+                    <div class="form-actions">
+                      <%= f.submit nil, class: 'button radius' %>
+                      <%#= link_to 'Back to list of bets', bets_path, :class => 'button secondary radius' %>
+                    </div>
+
+                <% end %></li></br>
+        <% else %>
+          <li><p> Bet has not yet been accepted </p></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>You don't have any bets to broker.<h5>
+  </div>
+<% end %>

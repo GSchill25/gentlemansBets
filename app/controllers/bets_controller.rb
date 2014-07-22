@@ -24,6 +24,7 @@ class BetsController < ApplicationController
 
   def pending
     @bets_to_accept = Bet.to_accept(current_user.member_id)
+    @bets_to_broker = Bet.to_broker(current_user.member_id)
     @pending_bets = Bet.pending(current_user.member_id)
   end
   
@@ -36,7 +37,10 @@ class BetsController < ApplicationController
     @bet = Bet.new(bet_params)
     @bet.member = current_user.member
     if @bet.save
-      @bet.member.number_of_bets = @bet.member.number_of_bets+1
+      puts "Bets #{@bet.member.number_of_bets}"
+      @bet.member.number_of_bets += 1
+      puts "Bets #{@bet.member.number_of_bets}"
+      @bet.member.save
       redirect_to bets_url, notice: "#{@bet.name} Bet was sent"
     else
       render action: 'new'
@@ -65,7 +69,7 @@ class BetsController < ApplicationController
     end
 
     def bet_params
-      params.require(:bet).permit(:name, :description, :winner, :member_id, :member_one_confidence, :member_two_confidence, :challengee, :challengee_id, :accepted, :active)
+      params.require(:bet).permit(:name, :description, :winner, :member_id, :member_one_confidence, :member_two_confidence, :challengee, :challengee_id, :accepted, :active, :broker_id, :winner_id)
     end
 
 end
