@@ -8,6 +8,12 @@ class Bet < ActiveRecord::Base
 	scope :to_accept, lambda {|member_id| where("challengee_id = ? and accepted = ?", member_id, false)}
 	scope :pending, lambda {|member_id| where("member_id = ? and accepted = ?", member_id, false)}
 
+	before_save :default_values
+
+	def default_values
+		self.accepted = false
+	end
+
 	def update_accept
 		self.accepted = true
 		self.save
