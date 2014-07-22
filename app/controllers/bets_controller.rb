@@ -51,7 +51,9 @@ class BetsController < ApplicationController
     @bet.member = current_user.member
     if @bet.update(bet_params)
       @bet.member.count_wins
+      @bet.member.save
       Member.find(@bet.challengee_id).count_wins
+      Member.find(@bet.challengee_id).save
       redirect_to @bet, notice: "#{@bet.name} was revised"
     else
       render action: 'edit'

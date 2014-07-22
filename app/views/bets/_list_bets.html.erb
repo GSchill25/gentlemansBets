@@ -6,8 +6,9 @@
     <th width="350">Description</th>
     <th width="100">Challenger</th>
     <th width="100"></th>
-    <th width="100">Challengee</th>
+    <th width="10"></th>
     <th width="100"></th> 
+    <th width="100">Challengee</th>
     <th width="100">Accepted?</th>
 
     <th></th>
@@ -24,12 +25,13 @@
     <% else %>
       <td align="center"><%= image_tag("blank-profile.jpg", height: '64', width: '64') %></td>
     <% end %>
-    <td align="center"><%= Member.find(bet.challengee_id).proper_name %></td>
+    <td align="center"><p> vs.</p></td>
     <% if Member.find(bet.challengee_id).user.picture != nil %>
       <td align="center"><%= image_tag(Member.find(bet.challengee_id).user.picture, height: '64', width: '64') %></td>
     <% else %>
       <td align="center"><%= image_tag("blank-profile.jpg", height: '64', width: '64') %></td>
     <% end %>
+    <td align="center"><%= Member.find(bet.challengee_id).proper_name %></td>
     <td align="center"><%= bet.accepted ? "Yes" : "No" %></td>
     <td><%= link_to 'View', bet_path(bet), class: "button tiny radius" %></td>
   </tr>

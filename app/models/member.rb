@@ -31,10 +31,10 @@ class Member < ActiveRecord::Base
 	end
 
 	def count_wins
-		all_bets = Bet.all.map{|b| b.winner}
+		all_bets = Bet.all.map{|b| b.winner_id}
 		wins = 0
 		all_bets.each do |b|
-			if b == self.proper_name
+			if b == self.id
 				wins = wins +1
 			end
 		end
