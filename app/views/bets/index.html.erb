@@ -1,3 +1,14 @@
+</br></br>
+<div class="row">
+
+  <div class="small-4 columns"><h3>All Bets Placed</h3></div>
+  <div class="small-4 columns">
+    <%= render :partial => "tag_cloud" %>
+  </div>
+  <div class="small-4 columns">&nbsp;</div>
+</div>
+
+
 <div class="row">
   <div class="small-12 columns">
   	<%= render :partial => "list_bets" %>
@@ -10,7 +21,11 @@
 <div class="row">
   <div class="small-12 columns">
   	<br /><br />
-  	<%= render :partial => "calendar_bets" %>
-    
+
+    <a href="#" data-reveal-id="myModal">Calendar View</a>
+    <div id="myModal" class="reveal-modal large" data-reveal>
+      <%= render :partial => "calendar_bets" %>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
   </div>
 </div>
