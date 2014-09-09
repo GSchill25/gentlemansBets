@@ -8,6 +8,8 @@ GentlemansBets::Application.routes.draw do
   get 'login' => 'sessions#new', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
 
+  get 'tags/:tag', to: 'bets#index', as: :tag
+
   get 'pending' => 'bets#pending', :as => :pending
   post 'accept' => 'bets#accept', :as => :accept
 

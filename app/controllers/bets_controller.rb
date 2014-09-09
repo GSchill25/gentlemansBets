@@ -2,10 +2,17 @@ class BetsController < ApplicationController
   before_action :set_bet, only: [:show, :edit, :update, :destroy, :accept]
 
   def index
+  if params[:tag]
+    @bets = Bet.tagged_with(params[:tag]).paginate(:page => params[:page]).per_page(10)
+    @calendar_bets = Bet.all
+    @bets_by_date = @calendar_bets.group_by { |b| b.created_at.to_date }
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  else
     @bets = Bet.paginate(:page => params[:page]).per_page(10)
     @calendar_bets = Bet.all
     @bets_by_date = @calendar_bets.group_by { |b| b.created_at.to_date }
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  end
   end
 
   def show
@@ -71,7 +78,7 @@ class BetsController < ApplicationController
     end
 
     def bet_params
-      params.require(:bet).permit(:name, :description, :winner, :member_id, :member_one_confidence, :member_two_confidence, :challengee, :challengee_id, :accepted, :active, :broker_id, :winner_id)
+      params.require(:bet).permit(:tag, :tag_list, :name, :description, :winner, :member_id, :member_one_confidence, :member_two_confidence, :challengee, :challengee_id, :accepted, :active, :broker_id, :winner_id)
     end
 
 end

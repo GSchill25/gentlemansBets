@@ -1,5 +1,7 @@
 class Bet < ActiveRecord::Base
 	belongs_to :member
+	#attr_accessible :name, :description, :tag_list
+	acts_as_taggable
 
 	validates_presence_of :name, :description, :member_id
 

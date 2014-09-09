@@ -5,6 +5,9 @@
 <strong>Description:&nbsp;&nbsp;</strong><br /> 
   <%= @bet.description %><br /><br />
 
+  <strong>Tags:&nbsp;&nbsp;</strong><br /> 
+  Tags: <%= raw @bet.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %><br /><br />
+
 <strong>Winner: &nbsp;&nbsp;</strong> 
   <%= @bet.winner_id.nil? ? "Undecided" : @bet.winner_id %><br /><br />
 

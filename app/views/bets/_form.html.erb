@@ -4,7 +4,8 @@
     
     <%= f.input :name %>
     <%= f.input :description, input_html: { rows: 8 } %>
-    <%= f.input :member_one_confidence %>
+    <%#= f.input :member_one_confidence %>
+    <%= f.input :tag_list, label: "Tags (seperated by commas)" %>
     <%= f.input :challengee_id, collection: Member.all, prompt: "Select who to challenge..." %>
     <%= f.input :broker_id, collection: Member.all, prompt: "Select a nuetral party to determine the winner..." %>
     <%# if current_user.role == 'admin' %>

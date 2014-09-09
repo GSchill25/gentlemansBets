@@ -4,6 +4,8 @@ gem 'omniauth-twitter'
 
 gem 'omniauth-facebook'
 
+gem "font-awesome-rails"
+
 gem 'chartkick'
 
 gem 'populator'
@@ -72,6 +74,9 @@ gem 'jquery-ui-rails', '4.1.1'
 gem "nested_form"
 
 gem 'chronic', '0.10.2'
+
+gem 'acts-as-taggable-on'
+
 
 # Additional gems that are very useful in Rails development
 group :development do
