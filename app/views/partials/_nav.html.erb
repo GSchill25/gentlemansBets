@@ -2,10 +2,11 @@
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
-          <%#= link_to image_tag('amcc_logo.png'), home_path %>
+          <%= image_tag "gblogo.png", :size => "100x100", :alt => "logo" %>
         </li>
       </ul>
       <section class="top-bar-section">
+        
         <ul class="left">
           <!-- options for curriculums -->
           <li class="has-dropdown">
@@ -26,7 +27,7 @@
             <% end %>
             <ul class="dropdown">
               <li><%= link_to "List Members", members_path %></li>
-              <li><%= link_to "Add a Member", new_member_path %></li>
+              <li><%#= link_to "Add a Member", new_member_path %></li>
             </ul>
           </li>
 
@@ -35,6 +36,11 @@
           <% if current_user %>
             Welcome <%= current_user.username %>!
             <%= link_to "Sign Out", signout_path %>
+            <% if current_user.picture != nil %>
+              <%=image_tag(current_user.picture, height: '64', width: '64') %>
+            <% else %>
+              <%= image_tag("blank-profile.jpg", height: '64', width: '64') %>
+            <% end %>
           <% else %>
             <%#= link_to "Sign in with Twitter", "/auth/twitter" %>
             <a href="/auth/twitter" class="auth_provider">

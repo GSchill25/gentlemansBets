@@ -10,8 +10,6 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @member.proper_name %><br /><br />
 
-<strong>Age:&nbsp;&nbsp;</strong> 
-  <%= @member.age %><br /><br />
 
  <strong>Number of bets:&nbsp;&nbsp;</strong> 
   <%= @member.number_of_bets %><br /><br />
@@ -27,5 +25,5 @@
 <% end %>
 
 <%# if current_user.member_id == @member.id %>
-	<%= link_to "Edit Info", edit_member_path(@member), class: "button tiny radius" %>&nbsp;&nbsp;
+	<%#= link_to "Edit Info", edit_member_path(@member), class: "button tiny radius" %>&nbsp;&nbsp;
 <%# end %>

@@ -169,8 +169,6 @@ GEM
       omniauth-oauth (~> 1.0)
     polyglot (0.3.4)
     populator (1.0.0)
-    protected_attributes (1.0.5)
-      activemodel (>= 4.0.1, < 5.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -289,7 +287,6 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-twitter
   populator
-  protected_attributes
   quiet_assets
   rails (= 4.0.3)
   sass-rails (~> 4.0.0)
