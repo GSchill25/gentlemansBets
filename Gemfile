@@ -8,6 +8,8 @@ gem "font-awesome-rails"
 
 gem 'chartkick'
 
+gem 'rails_12factor'
+
 gem 'populator'
 
 gem 'chart-js-rails'
