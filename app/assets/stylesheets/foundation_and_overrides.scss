@@ -36,7 +36,7 @@
 // $total-columns: 12;
 
 // We use these to control various global styles
-   $body-bg: #96928f;
+   $body-bg: linear-gradient(70deg, #FF6666, white);
 // $body-font-color: #222;
    $body-font-family: "Arial", Helvetica, sans-serif;
 // $body-font-weight: normal;
@@ -60,7 +60,7 @@ $success-color: #B5EBC9;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
-// $global-rounded: 1000px;
+$global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
 // $shiny-edge-size: 0 1px 0;
@@ -159,7 +159,7 @@ $success-color: #B5EBC9;
 
 // We use these to style anchors
 // $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
+$anchor-font-color: #000;
 // $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
 
 // We use these to style the <hr> element
@@ -333,7 +333,7 @@ $button-margin-bottom: rem-calc(0);
 // $button-font-align: center;
 
 // We use these to control various hover effects.
-   $button-function-factor: 20%;
+$button-function-factor: 20%;
 
 // We use these to control button border styles.
 // $button-border-width: 1px;
@@ -341,7 +341,7 @@ $button-margin-bottom: rem-calc(0);
 
 // We use this to set the default radius used throughout the core.
 // $button-radius: $global-radius;
-// $button-round: $global-rounded;
+$button-round: $global-rounded;
 
 // We use this to set default opacity for disabled buttons.
 // $button-disabled-opacity: 0.7;
@@ -1029,7 +1029,7 @@ $panel-bg: scale-color(#B5E7F5, $lightness: 50%);
 
 // These control the background color for the table and even rows
 // $table-bg: #fff;
-$table-even-row-bg: #FFC1C1;
+$table-even-row-bg: linear-gradient(#4099FF, white);
 
 // These control the table cell border style
 $table-border-style: none;
@@ -1136,7 +1136,7 @@ $topbar-margin-bottom: 0px;
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: #FF9966;
-$topbar-dropdown-link-color: #000;
+$topbar-dropdown-link-color: #FF6666;
 // $topbar-dropdown-link-bg: #F7EAE6;
 // $topbar-dropdown-link-weight: normal;
 // $topbar-dropdown-toggle-size: 5px;
@@ -1144,9 +1144,9 @@ $topbar-dropdown-link-color: #000;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #000;
+$topbar-link-color: #777;
 // $topbar-link-color-hover: #333;
-// $topbar-link-color-active: #fff;
+// $topbar-link-color-active: #000;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: normal;
 $topbar-link-font-size: rem-calc(14);
@@ -1258,9 +1258,6 @@ a img {
    color: #FF6666;
 }
 
-.top-bar-section .dropdown li:not(.has-form) a:not(.button){
-   color: #FFC1C1;
-}
 
 .top-bar-section ul .right{
    padding-left: 350px;
@@ -1283,6 +1280,17 @@ a img {
 	padding-top:60px;
 }
 
+.button.tiny {
+   background-color: #FF6666 ;
+}
+
+.tag a{
+   background-color: #def;
+}
+
+.tag a:hover{
+   background-color: #fff;
+}
 
 a:hover {
   color: black ;

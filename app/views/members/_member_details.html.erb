@@ -20,9 +20,9 @@
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @member.active ? "Yes" : "No" %><br /><br />
 
-<% if not @member.user.nil? %>
-    <%= render :partial =>"user_details" %>
-<% end %>
+<%# if not @member.user.nil? %>
+    <%#= render :partial =>"user_details" %>
+<%#end %>
 
 <%# if current_user.member_id == @member.id %>
 	<%#= link_to "Edit Info", edit_member_path(@member), class: "button tiny radius" %>&nbsp;&nbsp;

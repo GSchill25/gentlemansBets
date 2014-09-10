@@ -1,6 +1,6 @@
 <table class="table">
   <tr>
-    <th width="400"></th>
+    <th width="400">Bet</th>
     <th width="100">Challenger</th>
     <th width="100"></th>
     <th width="10"></th>
@@ -14,7 +14,7 @@
 
 <% @bets.each do |bet| %>
   <tr>
-    <td><div class="betName"><%= link_to bet.name, bet_path(bet) %>&nbsp;&nbsp;&nbsp;<%= raw bet.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></div></br><div align="center"><%= bet.description %></div></td>
+    <td><div class="betName"><strong><i><%= link_to bet.name, bet_path(bet) %></i></strong>&nbsp;&nbsp;&nbsp;<div class="tag"><%= raw bet.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></div></div></br><div align="center"><%= bet.description %></div></td>
     <td align="center"><%= bet.member.proper_name %></td>
     <% if bet.member.user.picture != nil %>
       <td align="center"><%= image_tag(bet.member.user.picture, height: '64', width: '64') %></td>
